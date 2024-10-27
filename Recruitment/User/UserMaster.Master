@@ -1,0 +1,217 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="UserMaster.master.cs" Inherits="Recruitment.User.UserMaster" %>
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="zxx">
+<head runat="server">
+    <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+         <title>ITRelated Recruitment </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.ico">
+
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<!-- CSS here -->
+            <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
+            <link rel="stylesheet" href="../assets/css/flaticon.css">
+            <link rel="stylesheet" href="../assets/css/price_rangs.css">
+            <link rel="stylesheet" href="../assets/css/slicknav.css">
+            <link rel="stylesheet" href="../assets/css/animate.min.css">
+            <link rel="stylesheet" href="../assets/css/magnific-popup.css">
+            <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css">
+            <link rel="stylesheet" href="../assets/css/themify-icons.css">
+            <link rel="stylesheet" href="../assets/css/slick.css">
+            <link rel="stylesheet" href="../assets/css/style.css">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+     <style>
+            .profile-icon {
+  width: 30px;
+  height: 30px;
+  background-color:lightgray;
+  border-radius: 60%;
+  display: flex;
+  padding:20px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Search section styles */
+.search-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.find-button{
+    padding: 10px;
+    border-radius: 20px;
+    background-color: aquamarine;
+    width: 120px;
+    cursor: pointer;
+    border:none;
+}
+.find-button:hover{
+    background-color: lightcoral;
+}
+
+
+/* Add media queries for responsiveness */
+@media screen and (max-width: 768px) {
+ 
+  .search-section {
+    flex-direction: column; /* Stack search elements vertically */
+    align-items: center;
+  }
+
+  .search-bar,
+  .find-button {
+    width: 100%; /* Make search elements span the full width */
+    margin: 5px 0;
+  }
+}
+       
+        </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!-- Preloader Start -->
+    <div id="preloader-active">
+
+    </div>
+    <!-- Preloader Start -->
+    <header  style="background-color:#2f4597;">
+        <!-- Header Start -->
+       <div class="header-area header-transparrent">
+           <div class="headder-top header-sticky">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-2">
+                            <!-- Logo -->
+                            <div class="logo">
+                                <a href="Default.aspx"><img src="../assets/img/logo/logos.png" alt="" style="width:190px; height:50px; opacity:0.9"></a>
+                            </div>  
+                        </div>
+                        <div class="col-lg-9 col-md-9">
+                            <div class="menu-wrapper">
+                                <!-- Main-menu -->
+                                 <div class="main-menu">
+                                    <nav class="d-none d-lg-block">
+                                        <ul id="navigation">
+                                            <li><a href="Default.aspx" style="color:gold">Home</a></li>
+<%--                                            <li><a href="#">Find a Jobs </a></li>--%>
+<%--                                            <li><a href="About.aspx">About</a></li>--%>
+                                    
+                                            <li><a href="Register.aspx"  style="color:gold">Register</a></li>
+                                            <li><a href="SignIn.aspx"  style="color:gold">Login</a></li>
+
+                                           <% if (Session["UserID"] != null) { %>
+                                        
+                                            <% string userFirstName = Session["UserFirstName"] as string; %>
+
+                                        <li> <div class="profile-icon"><b><%= !string.IsNullOrEmpty(userFirstName) ? userFirstName.Substring(0, Math.Min(2, userFirstName.Length)) : "" %></b></div>
+                                            <ul class="submenu">
+                                                <li><a href="MyProfile.aspx" style="color:black">My Profile</a></li>
+                                                <li><a href="Logout.aspx"  style="color:black" >Logout</a></li>
+                                            </ul>
+                                        </li>
+                                    <% } %>
+<%--                                            <li><a href="Contact.aspx">Contact</a></li>--%>
+                                        </ul>
+                                    </nav>
+                                </div>           
+
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+       </div>
+        <!-- Header End -->
+    </header>
+        <div> 
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+
+      <footer>
+        <!-- Footer Start-->
+        <!-- footer-bottom area -->
+        <div class="footer-bottom-area footer-bg">
+            <div class="container">
+                <div class="footer-border">
+                     <div class="row d-flex justify-content-between align-items-center">
+                         <div class="col-xl-10 col-lg-10 ">
+                             <div class="footer-copy-right">
+                                <center> <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This Website is made by <a style="color:blue" href="#" target="_blank">Johnson</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></center>
+                             </div>
+                         </div>
+                        <%-- <div class="col-xl-2 col-lg-2">
+                             <div class="footer-social f-right">
+                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                 <a href="#"><i class="fab fa-twitter"></i></a>
+                                 <a href="#"><i class="fas fa-globe"></i></a>
+                                 <a href="#"><i class="fab fa-behance"></i></a>
+                             </div>
+                         </div>--%>
+                     </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+
+
+    </form>
+    
+    <!-- JS here -->
+	
+		<!-- All JS Custom Plugins Link Here here -->
+        <script src="../assets/js/vendor/modernizr-3.5.0.min.js"></script>
+		<!-- Jquery, Popper, Bootstrap -->
+		<script src="../assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="../assets/js/popper.min.js"></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
+	    <!-- Jquery Mobile Menu -->
+        <script src="../assets/js/jquery.slicknav.min.js"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script src="../assets/js/owl.carousel.min.js"></script>
+        <script src="../assets/js/slick.min.js"></script>
+        <script src="../assets/js/price_rangs.js"></script>
+        
+		<!-- One Page, Animated-HeadLin -->
+        <script src="../assets/js/wow.min.js"></script>
+		<script src="../assets/js/animated.headline.js"></script>
+        <script src="../assets/js/jquery.magnific-popup.js"></script>
+
+		<!-- Scrollup, nice-select, sticky -->
+        <script src="../assets/js/jquery.scrollUp.min.js"></script>
+		<script src="../assets/js/jquery.sticky.js"></script>
+        
+        <!-- contact js -->
+        <script src="../assets/js/contact.js"></script>
+        <script src="../assets/js/jquery.form.js"></script>
+        <script src="../assets/js/jquery.validate.min.js"></script>
+        <script src="../assets/js/mail-script.js"></script>
+        <script src="../assets/js/jquery.ajaxchimp.min.js"></script>
+        
+		<!-- Jquery Plugins, main Jquery -->	
+        <script src="../assets/js/plugins.js"></script>
+        <script src="../assets/js/main.js"></script>
+</body>
+</html>
