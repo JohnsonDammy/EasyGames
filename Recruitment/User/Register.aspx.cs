@@ -85,7 +85,7 @@ namespace Recruitment.User
                 string script = @"$(document).ready(function() { 
                             $('#customAlert1N').modal('show'); 
                             $('#btnOK1').click(function() {
-                                window.location.href = 'MyProfile.aspx';
+                                window.location.href = 'SignIn.aspx';
                             });
                         });";
                 ClientScript.RegisterStartupScript(this.GetType(), "customAlert1N", script, true);
